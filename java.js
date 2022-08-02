@@ -8,14 +8,24 @@ const createGrid = (amtGrids) =>{
         row.classList.add('grid-row')
 
      for (let j=0; j < amtGrids; j++){ 
+        const WandH = 960 / sizeOf
         const gridBox = document.createElement('div')
         gridBox.classList.add('grid-box')
+        gridBox.style.width= `${WandH}px`
+        gridBox.style.height= `${WandH}px`
+
+        gridBox.addEventListener('mouseenter', () => {
+            gridBox.style.backgroundColor= 'black'
+        })
+
         row.appendChild(gridBox)
     }
     container.appendChild(row)
 }
 }
 createGrid(sizeOf)
+
+
 
 
 
