@@ -1,5 +1,5 @@
 const container = document.querySelector('.container')
-let sizeOf = prompt('pick a size')
+//let sizeOf = prompt('pick a size')
 
 //reset button
 const btn =document.querySelector('button')
@@ -13,9 +13,13 @@ btn.addEventListener('click', () => {
     
 
     const wrapper = document.querySelector('.wrapper')
-    wrapper.remove()
+    if(!wrapper){
+        createGrid(newGrid)
+    }else {
+        wrapper.remove()
+        createGrid(newGrid)
+    }
     
-    createGrid(newGrid)
     
 })
 
@@ -28,7 +32,7 @@ const createGrid = (amtGrids) =>{
         row.classList.add('grid-row')
 
      for (let j=0; j < amtGrids; j++){ 
-        let WandH = 1080 / sizeOf
+        let WandH = 1080 / amtGrids
         const gridBox = document.createElement('div')
         gridBox.classList.add('grid-box')
         gridBox.style.width= `${WandH}px`
@@ -50,20 +54,3 @@ createGrid(sizeOf)
 
 
 
-/*function createDiv(){
-    for(let i = 1; i < 257 ; i++){       //257 = 16x16
-        const div = document.createElement('div')   //create div element
-        div.classList.add('divs')          //add to class 'divs'
-        container.appendChild(div)         // append each to container
-    }
-
-const divs= document.querySelectorAll('.div')
-
-divs.forEach((div) => {
-div.addEventListener('mouseover', (e) => {
-    e.target.style.backgroundColor='black'
-} )
-
-})
-
-*/
