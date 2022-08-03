@@ -48,7 +48,7 @@ const createGrid = (amtGrids) =>{
 }
 container.appendChild(wrapper)
 }
-createGrid(sizeOf)
+
 
 
 
