@@ -1,8 +1,10 @@
 const container = document.querySelector('.container')
-//let sizeOf = prompt('pick a size')
+
 
 //reset button
 const btn =document.querySelector('button')
+
+//Click to create grid of desired size
 
 btn.addEventListener('click', () => {
     let newGrid = Number(prompt('enter a grid size'))
@@ -11,7 +13,6 @@ btn.addEventListener('click', () => {
     
     newGrid = Number(prompt('enter a num < 100'))
     
-
     const wrapper = document.querySelector('.wrapper')
     if(!wrapper){
         createGrid(newGrid)
@@ -38,8 +39,13 @@ const createGrid = (amtGrids) =>{
         gridBox.style.width= `${WandH}px`
         gridBox.style.height= `${WandH}px`
 
+        // shading event listener
+
         gridBox.addEventListener('mouseenter', () => {
-            gridBox.style.backgroundColor= 'blueviolet';
+             gridBox.style.backgroundColor = 'black'
+             gridBox.style.opacity -= '-0.1'
+            //gridBox.style.backgroundColor= getRandomColor();
+           
         })
 
         row.appendChild(gridBox)
@@ -48,7 +54,15 @@ const createGrid = (amtGrids) =>{
 }
 container.appendChild(wrapper)
 }
-
+/*function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+*/
 
 
 
